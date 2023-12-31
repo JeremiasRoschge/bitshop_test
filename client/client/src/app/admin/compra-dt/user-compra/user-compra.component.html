@@ -1,0 +1,48 @@
+<div class="container">
+
+    <div class="row text-center mt-4"></div>
+    <div class="row text-center mt-5">
+      <div class="col">
+        <h2>Gestor de compras</h2>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div class="col-md-2"></div>
+      <div class="row mt-5">
+        <h3> Debe pagar a  fin de mes: ${{gastos}}</h3>
+            <div class="col">
+              <table
+                id="dtCompra"
+                class="table table-striped table-bordered"
+                style="width: 250%"
+              >
+                <thead>
+                  <tr>
+                    <th>ID Compra</th>
+                    <th>CUIL</th>
+                    <th>ID Producto</th>
+                    <th>Cantidad</th>
+                    <th>Gastos</th>
+                    <th>Fecha</th>
+                    <th>Tipo de Pago</th>
+                    <th>Nmro de pago</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of datatable">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.cuil }}</td>
+                    <td>{{ item.id_prod }}</td>
+                    <td>{{ item.cantidad }}</td>
+                    <td>{{ item.gastos }}</td>
+                    <td>{{ item.fecha | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+                    <td>{{ item.tipo_de_pago }}</td>
+                    <td>{{ item.OrderId }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+    </div>
+  

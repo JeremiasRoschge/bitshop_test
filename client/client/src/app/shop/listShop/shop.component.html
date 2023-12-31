@@ -1,0 +1,42 @@
+<!-- app.component.html -->
+
+<!-- Encabezado -->
+<div class="container" style="width: 50%; height: auto;">
+  <div class="searchcontainer">
+    <input type="text" class="form-control mb-3" placeholder="Buscar productos" [(ngModel)]="searchTerm" (input)="filterProducts()">
+
+  </div>
+
+</div>
+
+<!-- Lista de productos -->
+<div class="container mt-3" style="display: flex; flex-direction: row; align-items:first baseline; margin: auto;">
+  <div class="row" style="width: 100%;">
+    <div class="card text-center col-md-2" *ngFor="let producto of paginatedProducts" style="margin: 10px;">
+      <div class="card-body">
+        <img class="card-img-top avatar-lg" src="{{ producto.imagenUrl }}" style="max-height: 150px;display: flex; flex-direction: row; align-items:first baseline">
+        <h5 class="card-title">{{ producto.nombre }}</h5>
+        <p class="card-text">Precio: {{ producto.precio | currency }}</p>
+
+        <!-- Botones de Comprar y Añadir al carrito -->
+        
+  <div class="buttons">
+    <div class="contenedor-flex-ComprarAdd">
+      <a href="#" class="btn btn-primary btn-sm btn-buy" (click)="onBuying(producto, 1, $event)">Comprar</a>
+      <a href="#" class="btn btn-secondary btn-sm" style="margin-left: 2px;" id="BotonAgregar" (click)="onAddCarrito(producto, 1, $event)"><i class="fal fa-shopping-cart"></i></a>
+    </div>
+
+    <!-- Controles de Cantidad -->
+    <div class="input-group mt-2">
+      <button class="btn btn-secondary btn-sm" (click)="decrementCantidad(producto)">-</button>
+      <input type="text" class="form-control text-center" [(ngModel)]="producto.cantidad" disabled>
+      <button class="btn btn-secondary btn-sm" (click)="incrementCantidad(producto)">+</button>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Controles de paginación -->
+

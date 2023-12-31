@@ -1,0 +1,9 @@
+diff a/client/client/src/app/admin/compra-dt/compra-dt.component.html b/client/client/src/app/admin/compra-dt/compra-dt.component.html	(rejected hunks)
+@@ -52,6 +52,7 @@
+           </thead>
+           <tbody>
+             <tr *ngFor="let item of datatable">
++              <td><input type="button" value="Seleccionar" (click)="onSetData(item)"></td>
+               <td>{{ item.id }}</td>
+               <td>{{ item.cuil }}</td>
+               <td>{{ item.id_prod }}</td>

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "bitshop-fd7b3"
+  },
+  "targets": {
+    "bitshop-fd7b3": {
+      "hosting": {
+        "client": [
+          "bitshop-fd7b3"
+        ]
+      }
+    }
+  }
+}

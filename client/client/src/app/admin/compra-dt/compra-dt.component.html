@@ -1,0 +1,72 @@
+<div class="container">
+
+  <div class="row text-center mt-4"></div>
+  <div class="row text-center mt-5">
+    <div class="col">
+      <h2>Gestor de compras</h2>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+         <label for="txtNombre" class="from-label">CUIL</label>
+         <input placeholder="CUIL" type="text" name="id" id="txtNombre" class="form-control" [(ngModel)]="compra.cuil"/>
+      </div>
+   </div>
+   
+   <div class="col-md-4">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+         <label for="txtFecha" class="from-label">Fecha</label>
+         <input placeholder="aaaa-mm" type="month" name="fecha" id="txtFecha" class="form-control" [(ngModel)]="compra.fechaSeleccionada"/>
+      </div>
+   </div>   
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-danger" type="button">Eliminar</button>
+    <button class="btn btn-primary m-2" type="button" (click)="buscarGastos()">Buscar Gastos de usuario</button>
+    <button class="btn btn-secondary" type="button" (click)="verComprasUsuario(compra.cuil, compra.fechaSeleccionada)">Ver compras del usuario</button>
+ </div>
+    <div class="row mt-5">
+      <h3> Total recaudado:  ${{gastos}}</h3>
+      <div class="col">
+        <table
+          id="dtCompra"
+          class="table table-striped table-bordered"
+          style="width: 90%"
+        >
+          <thead>
+            <tr>
+              <th>Seleccionar</th>
+              <th>ID Compra</th>
+              <th>CUIL</th>
+              <th>Nombre completo</th>
+              <th>ID Producto</th>
+              <th> Producto</th>
+              <th>Cantidad</th>
+              <th>Gastos</th>
+              <th>Fecha</th>
+              <th>Tipo de Pago</th>
+              <th>Nmro de pago</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of datatable">
+              <td><input type="button" value="Seleccionar" (click)="onSetData(item)"></td>
+              <td>{{ item.id }}</td>
+              <td>{{ item.cuil }}</td>
+              <td>{{ item.nombre_completo}}</td>
+              <td>{{ item.id_prod }}</td>
+              <td>{{ item.nombre_pr}}</td>
+              <td>{{ item.cantidad }}</td>
+              <td>{{ item.gastos }}</td>
+              <td>{{ item.fecha | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+              <td>{{ item.tipo_de_pago }}</td>
+              <td>{{ item.OrderId }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

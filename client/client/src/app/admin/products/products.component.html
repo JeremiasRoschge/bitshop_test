@@ -1,0 +1,68 @@
+
+<div class="container">
+  <div class="row text-center mt-4">
+  </div>
+  <div class="row text-center mt-5">
+    <div class="col">
+      <h2>Gestor de stock de productos</h2>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-2">
+      <label for="txtId" class="from-label">ID</label>
+      <input type="text" name="id" id="txtId" class="form-control" disabled="true" [(ngModel)]="product.id">
+    </div>
+    <div class="col-md-3">
+      <label for="txtNombre" class="from-label">Nombre del producto</label>
+      <input type="text" name="id" id="txtProducto" class="form-control" [(ngModel)]="product.nombre">
+    </div>
+    <div class="col-md-2">
+      <label for="txtStock" class="from-label">Stock</label>
+      <input type="number" name="id" id="txtStock" class="form-control" [(ngModel)]="product.stock">
+    </div>
+    <div class="col-md-2">
+      <label for="txtPrecio" class="from-label">Precio</label>
+      <input type="number" name="id" id="txtPrecio" class="form-control" [(ngModel)]="product.precio">
+    </div>
+    <div class="col-md-3">
+      <label for="txtImagen" class="from-label">Imagen</label>
+      <input type="file" name="id" id="txtImagen" class="form-control" (change)="onFileSelected($event)">
+    </div>
+  </div>
+ 
+  <div class="row mt-5">
+    <div class="col">
+      <button class="btn btn-success" type="button" (click)="onAddProduct(product)">Agregar</button>
+      <button class="btn btn-warning m-2" type="button" (click)="onUpdateProduct(product)">Modificar</button>
+      <button class="btn btn-danger" type="button" (click)="onDeleteProduct(product.id, product.nombre)">Eliminar</button>
+      <button class="btn btn-primary m-2" type="button" (click)="clear()">Limpiar</button>
+    </div>
+    
+  </div>
+  <div class="row mt-10">
+    <div class="col">
+      <table id="dtProducts" class="table table-striped table-bordered" style="width: 100%;">
+        <thead>
+          <tr>
+            <th>Seleccionar</th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Stock</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of datatable">
+            <td><input type="button" value="Seleccionar" (click)="onSetData(item)"></td>
+            <td> {{ item.id }} </td>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.stock }}</td>
+            <td>{{ '$' + item.precio }}</td>
+            <td>{{ item.imagenUrl.length > 25 ? (item.imagenUrl | slice:0:25) + '...' : item.imagenUrl }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

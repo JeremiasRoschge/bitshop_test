@@ -1,0 +1,38 @@
+<div class="direction"> 
+    <div class="dropcart--style--offcanvas" [ngClass]="{'dropcart--open': isMenuOpen}">
+        <div class="dropcart__backdrop" (click)="closeMenu()"></div>
+        <div class="dropcart__body" id="divCarritoAlt">
+
+            <div class="dropcart__header">
+                <div class="dropcart__title" data-ar="Mi Carrito" data-br="Meu carrinho" data-en="My cart">
+                    Mi Carrito   
+                </div>
+                <button class="dropcart__close navbar-toggler fal fa-shopping-cart cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation" (click)="closeMenu()">
+                </button>
+            </div>
+
+            <div class="dropcart__products-list">
+                <div class="block-empty__body">
+                    <div class="block-empty__message" data-ar="Tu carrito esta vacio!" data-br="Seu carrinho está vazio!" data-en="Your cart is empty!">Tu carrito esta vacio!</div>
+                    <img src="assets/empty-cart.png" class="imgAddCarrito mt-5" alt="">
+                </div>
+            </div>
+
+            <div class="dropcart__totals">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Total</th>
+                            <td>$0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="dropcart__buttons">
+                <a class="btn btn-secondary" href="/Carrito" data-ar="Ver carrito" data-br="Veja carro" data-en="Go to cart">Ver carrito</a>
+                <a class="btn btn-primary" href="/Resumen" data-ar="Finalizar" data-br="Finalizar" data-en="End purchase">Finalizar</a>
+            </div>
+        </div>
+    </div>
+</div>

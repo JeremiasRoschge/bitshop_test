@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BitShop</title>
+
+  </head>
+  <body background="assets/imagen-fondo.jfif">
+
+    <div class="login-box">
+      <img src="assets/default-avatar.jpg" class="avatar" alt="Avatar Image">
+      <h1>Inicio</h1>
+      <form>
+
+        <label for="password">Pin</label>
+        <input type="text" [(ngModel)]="login.pin" name="pin" placeholder="Ingrese su Pin">
+        <input type="submit" value="Ingreso" (click)="Authentication(login)">
+
+      </form>
+    </div>
+  </body>
+</html>

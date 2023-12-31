@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row text-center mt-4">
+    </div>
+    <div class="row text-center mt-5">
+      <div class="col">
+        <h2>Gestor de empleados</h2>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-2">
+        <label for="txtId" class="from-label">CUIL</label>
+        <input type="text" name="id" id="txtCuil" class="form-control" [(ngModel)]="employee.cuil">
+      </div>
+      <div class="col-md-4">
+        <label for="txtNombre" class="from-label">Nombre</label>
+        <input type="text" name="id" id="txtNombre" class="form-control" [(ngModel)]="employee.nombre_completo">
+      </div>
+      <div class="col-md-2">
+        <label for="txtEdad" class="from-label">Pin</label>
+        <input type="text" name="id" id="txtPin" class="form-control" [(ngModel)]="employee.pin">
+      </div>
+      <div class="col-md-2">
+        <label for="selRol" class="from-label">Rol</label>
+        <select id="selRol" class="form-control" [(ngModel)]="employee.role">
+          <option value="Admin">Admin</option>
+          <option value="Empleado" selected>Empleado</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <div class="col">
+        <button class="btn btn-success" type="button" (click)="onAddEmployee(employee)">Agregar</button>
+        <button class="btn btn-warning m-2" type="button" (click)="onUpdateEmployee(employee)">Modificar</button>
+        <button class="btn btn-danger" type="button" (click)="onDeleteEmployee(employee.cuil)">Eliminar</button>
+        <button class="btn btn-primary m-2" type="button" (click)="clear()">Limpiar</button>
+      </div>
+      
+    </div>
+    <div class="row mt-5">
+      <div class="col">
+        <table id="dtEmployee" class="table table-striped table-bordered" style="width: 90%;">
+          <thead>
+            <tr>
+              <th>Seleccionar</th>
+              <th>Cuil</th>
+              <th>Nombre</th>
+              <th>Pin</th>
+              <th>Rol</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of datatable">
+              <td><input type="button" value="Seleccionar" (click)="onSetData(item)"></td>
+              <td> {{ item.cuil }} </td>
+              <td>{{ item.nombre_completo }}</td>
+              <td>{{ item.pin }}</td>
+              <td> {{ item.role }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+    <div class="logo-container">
+        <button class="logo" (click)="toggleCollapse()">A</button>
+        <div class="logo-text" @fadeInOut *ngIf="collapsed">Bitshop</div>
+        <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+            <i class="fal fa-times close-icon"></i>
+        </button>
+    </div>
+    <ul class="sidenav-nav">
+      <div *ngIf="userRole === 'Admin'">
+          <li class="sidenav-nav-item" *ngFor="let data of navAdminData">
+              <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{exact: true}"
+              >
+                  <i class="sidenav-link-icon" [class]="data.icon"></i>
+                  <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                      {{data.label}}
+                  </span>
+              </a>
+          </li>
+          <li>
+            <button type="button" class="btn btn-danger" (click)="logout()">Exit</button>
+          </li>
+      </div>
+
+      <div *ngIf="userRole === 'Empleado'">
+          <!-- <li class="sidenav-nav-item" *ngFor="let data of navAdminData">
+              <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{exact: true}"
+              >
+                  <i class="sidenav-link-icon" [class]="data.icon"></i>
+                  <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                      {{data.label}}
+                  </span>
+              </a>
+          </li> -->
+          <li>
+            <button type="button" class="btn btn-danger" (click)="logout()">Exit</button>
+          </li>
+      </div>
+    </ul>
+</div>

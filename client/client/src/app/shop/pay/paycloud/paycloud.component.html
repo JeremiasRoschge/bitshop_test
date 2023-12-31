@@ -1,0 +1,10 @@
+<div *ngIf="showQrAnimation" class="qr-animation" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; height: 100vh; margin-top: 50px;">
+    <div>
+      <h2>Escanee el QR con su dispositivo móvil</h2>
+    </div>
+  
+    <div *ngIf="showQrAnimation" class="qr-animation">
+      <img [src]="qrData" [width]="256" alt="QR Code">
+    </div>
+  </div>
+  
